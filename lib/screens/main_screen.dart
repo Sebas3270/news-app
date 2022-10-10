@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/providers/providers.dart';
+import 'package:news_app/screens/screens.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final screenProvider = Provider.of<ScreenProvider>(context);
+
     return Scaffold(
-      body: Center(
-        child: Text('Main Screen'),
+      body: IndexedStack(
+        index: screenProvider.currentIndex,
+        children: [
+          HomeScreen(),
+          HeadlinesScreen(),
+        ],
       ),
       bottomNavigationBar: _Navigation(),
     );
@@ -21,9 +31,12 @@ class _Navigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final screenProvider = Provider.of<ScreenProvider>(context);
+
     return BottomNavigationBar(
-      currentIndex: 0,
-      items: [
+      currentIndex: screenProvider.currentIndex,
+      items: const [
         BottomNavigationBarItem(
           label: 'For you',
           icon: Icon(Icons.account_circle_outlined),
@@ -35,6 +48,7 @@ class _Navigation extends StatelessWidget {
           activeIcon: Icon(Icons.feed),
         ),
       ],
+      onTap: (value) => screenProvider.currentIndex = value,
     );
   }
 }

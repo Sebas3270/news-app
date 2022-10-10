@@ -1,0 +1,1 @@
+export 'package:news_app/providers/screen_provider.dart';
