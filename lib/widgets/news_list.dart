@@ -11,11 +11,12 @@ class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: BouncingScrollPhysics(),
       itemCount: news.length,
       itemBuilder: (context, index){
 
         if(index == 0){
-          return _TopBarCard(newArticle: news[index], index: index);
+          return _TopBarCard( newArticle: news[index], index: index);
         }
 
         return _SecondaryNew( newArticle: news[index], );
@@ -46,6 +47,7 @@ class _SecondaryNew extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(8)),
             child: Container(
+              height: 60,
               width: 90,
               child: Image(
                 image: newArticle.urlToImage != null ? NetworkImage(newArticle.urlToImage!) : NetworkImage('https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png'),
@@ -63,7 +65,7 @@ class _SecondaryNew extends StatelessWidget {
                   Text(
                     newArticle.title,
                     maxLines: 2,
-                    style: TextStyle(
+                    style: const TextStyle(
                       overflow: TextOverflow.ellipsis,
                       fontSize: 15,
                     ),
@@ -72,9 +74,9 @@ class _SecondaryNew extends StatelessWidget {
                   Text(
                     newArticle.source.name,
                     maxLines: 2,
-                    style: TextStyle(
+                    style: const TextStyle(
                       overflow: TextOverflow.ellipsis,
-                      fontWeight: FontWeight.bold
+                      color: Colors.white54
                     ),
                   ),
                 ],
