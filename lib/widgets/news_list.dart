@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/models/models.dart';
+import 'package:news_app/widgets/widgets.dart';
 
 class NewsList extends StatelessWidget {
 
@@ -46,12 +47,17 @@ class _SecondaryNew extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(8)),
-            child: Container(
+            child: SizedBox(
               height: 60,
               width: 90,
-              child: Image(
+              /*child: Image(
                 image: newArticle.urlToImage != null ? NetworkImage(newArticle.urlToImage!) : NetworkImage('https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png'),
                 fit: BoxFit.cover,
+              ),*/
+              child: ImageLoader(
+                urlImage: newArticle.urlToImage, 
+                heightContainer: 60, 
+                sizeLoader: 15,
               ),
             ),
           ),
@@ -115,11 +121,16 @@ class _TopBarCard extends StatelessWidget {
             child: Container(
               height: 250,
               width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: newArticle.urlToImage != null ? NetworkImage(newArticle.urlToImage!) : NetworkImage('https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png'),
-                  fit: BoxFit.cover,
-                ),
+              // decoration: BoxDecoration(
+              //   image: DecorationImage(
+              //     image: newArticle.urlToImage != null ? NetworkImage(newArticle.urlToImage!) : NetworkImage('https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png'),
+              //     fit: BoxFit.cover,
+              //   ),
+              // ),
+              child: ImageLoader(
+                urlImage: newArticle.urlToImage, 
+                heightContainer: 250, 
+                sizeLoader: 50,
               ),
             ),
           ),
