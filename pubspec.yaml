@@ -44,6 +44,8 @@ dependencies:
   flutter_dotenv: ^5.0.2
   # To format date
   intl: ^0.17.0
+  # To use transparent images
+  transparent_image: ^2.0.0
 
 dev_dependencies:
   flutter_test:
