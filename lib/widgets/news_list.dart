@@ -59,6 +59,7 @@ class _SecondaryNew extends StatelessWidget {
                 urlImage: newArticle.urlToImage, 
                 heightContainer: 60, 
                 sizeLoader: 15,
+                widthContainer: 90,
               ),
             ),
           ),

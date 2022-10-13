@@ -5,9 +5,10 @@ class ImageLoader extends StatelessWidget {
 
   final String? urlImage;
   final double? heightContainer;
+  final double? widthContainer;
   final double? sizeLoader;
 
-  const ImageLoader({Key? key, this.urlImage, this.heightContainer, this.sizeLoader}) : super(key: key);
+  const ImageLoader({Key? key, this.urlImage, this.heightContainer, this.sizeLoader, this.widthContainer}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class ImageLoader extends StatelessWidget {
             image: urlImage!,
             fit: BoxFit.cover,
             height: heightContainer,
-            
+            width: widthContainer,
           ),
         ]
       ) 
