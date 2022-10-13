@@ -6,8 +6,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class NewsService extends ChangeNotifier{
 
-  final base_url = 'https://newsapi.org/v2';
-  final String api_key = dotenv.env['API_KEY']!; //loading from dot env
+  final baseUrl = 'https://newsapi.org/v2';
+  final String apiKey = dotenv.env['API_KEY']!; //loading from dot env
   List<Article> headlines = [];
   List<Category> categories = [
     Category(Icons.abc, 'general'),
@@ -25,9 +25,9 @@ class NewsService extends ChangeNotifier{
 
     getTopHeadlines();
 
-    categories.forEach((element) {
+    for (var element in categories) {
       categoryArticles[element.name] = [];
-    });
+    }
 
     getNewsByCategory(_selectedCategory);
   }
@@ -45,7 +45,7 @@ class NewsService extends ChangeNotifier{
       scheme: 'https',
       host: 'newsapi.org',
       path: '/v2/top-headlines',
-      queryParameters: {'apiKey': api_key, 'country': 'us'}
+      queryParameters: {'apiKey': apiKey, 'country': 'us'}
     );
 
     final res = await http.get(url);
@@ -67,7 +67,7 @@ class NewsService extends ChangeNotifier{
       scheme: 'https',
       host: 'newsapi.org',
       path: '/v2/top-headlines',
-      queryParameters: {'apiKey': api_key, 'country': 'us', 'category': category}
+      queryParameters: {'apiKey': apiKey, 'country': 'us', 'category': category}
     );
 
     final res = await http.get(url);

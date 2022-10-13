@@ -9,7 +9,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future main()async{
   await dotenv.load(fileName: ".env"); //to loa dot env
-  runApp( AppProviders());
+  runApp( const AppProviders());
 }
 
 class AppProviders extends StatelessWidget {
@@ -22,18 +22,20 @@ class AppProviders extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ScreenProvider(),),
         ChangeNotifierProvider(create: (context) => NewsService(),)
       ],
-      child: MyApp(),
+      child: const MyApp(),
     );
   }
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'News App',
-      home: MainScreen(),
+      home: const MainScreen(),
       theme: darkTheme,
     );
   }

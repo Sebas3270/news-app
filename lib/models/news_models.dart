@@ -59,24 +59,24 @@ class Article {
 
     factory Article.fromMap(Map<String, dynamic> json) => Article(
         source: Source.fromMap(json["source"]),
-        author: json["author"] == null ? null : json["author"],
+        author: json["author"],
         title: json["title"],
-        description: json["description"] == null ? null : json["description"],
+        description: json["description"],
         url: json["url"],
-        urlToImage: json["urlToImage"] == null ? null : json["urlToImage"],
+        urlToImage: json["urlToImage"],
         publishedAt: DateTime.parse(json["publishedAt"]),
-        content: json["content"] == null ? null : json["content"],
+        content: json["content"],
     );
 
     Map<String, dynamic> toMap() => {
         "source": source.toMap(),
-        "author": author == null ? null : author,
+        "author": author,
         "title": title,
-        "description": description == null ? null : description,
+        "description": description,
         "url": url,
-        "urlToImage": urlToImage == null ? null : urlToImage,
+        "urlToImage": urlToImage,
         "publishedAt": publishedAt.toIso8601String(),
-        "content": content == null ? null : content,
+        "content": content,
     };
 }
 
@@ -94,12 +94,12 @@ class Source {
     String toJson() => json.encode(toMap());
 
     factory Source.fromMap(Map<String, dynamic> json) => Source(
-        id: json["id"] == null ? null : json["id"],
+        id: json["id"],
         name: json["name"],
     );
 
     Map<String, dynamic> toMap() => {
-        "id": id == null ? null : id,
+        "id": id,
         "name": name,
     };
 }

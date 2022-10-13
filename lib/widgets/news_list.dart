@@ -13,7 +13,7 @@ class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       itemCount: news.length,
       itemBuilder: (context, index){
 
@@ -47,7 +47,7 @@ class _SecondaryNew extends StatelessWidget {
       
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
             child: SizedBox(
               height: 60,
               width: 90,
@@ -119,7 +119,7 @@ class _TopBarCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(10)),
-            child: Container(
+            child: SizedBox(
               height: 250,
               width: double.infinity,
               // decoration: BoxDecoration(
@@ -136,7 +136,7 @@ class _TopBarCard extends StatelessWidget {
             ),
           ),
           ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
             child: Container(
               width: double.infinity,
               height: 250,
@@ -172,9 +172,9 @@ class _TopBarCard extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '${ newArticle.title }',
+                  newArticle.title,
                   maxLines: 2,
-                  style: TextStyle(
+                  style: const TextStyle(
                     overflow: TextOverflow.ellipsis,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -206,14 +206,14 @@ class _InfoTag extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(5)),
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
         child: Container(
           color: color,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
             child: Text(
-              '${ info }',
-              style: TextStyle(
+              info,
+              style: const TextStyle(
                 //backgroundColor: Theme.of(context).colorScheme.secondary,
                 
               ),
