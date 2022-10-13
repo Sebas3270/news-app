@@ -6,8 +6,9 @@ import 'package:news_app/widgets/widgets.dart';
 class NewsList extends StatelessWidget {
 
   final List<Article> news;
+  final bool? topNew;
 
-  const NewsList({Key? key, required this.news}) : super(key: key);
+  const NewsList({Key? key, required this.news, this.topNew}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +17,11 @@ class NewsList extends StatelessWidget {
       itemCount: news.length,
       itemBuilder: (context, index){
 
-        if(index == 0){
+        if(index == 0 && topNew == true){
           return _TopBarCard( newArticle: news[index], index: index);
         }
 
-        return _SecondaryNew( newArticle: news[index], );
+        return _SecondaryNew( newArticle: news[index],);
       },
     );
   }

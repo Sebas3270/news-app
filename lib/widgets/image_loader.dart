@@ -30,6 +30,7 @@ class ImageLoader extends StatelessWidget {
             image: urlImage!,
             fit: BoxFit.cover,
             height: heightContainer,
+            
           ),
         ]
       ) 

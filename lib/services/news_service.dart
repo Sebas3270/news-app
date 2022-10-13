@@ -9,9 +9,35 @@ class NewsService extends ChangeNotifier{
   final base_url = 'https://newsapi.org/v2';
   final String api_key = dotenv.env['API_KEY']!; //loading from dot env
   List<Article> headlines = [];
+  List<Category> categories = [
+    Category(Icons.abc, 'general'),
+    Category(Icons.abc, 'business'),
+    Category(Icons.abc, 'entertainment'),
+    Category(Icons.abc, 'health'),
+    Category(Icons.abc, 'science'),
+    Category(Icons.abc, 'sports'),
+    Category(Icons.abc, 'technology'),
+  ];
+  String _selectedCategory = 'general';
+  Map<String,List<Article>> categoryArticles = {};
 
   NewsService(){
+
     getTopHeadlines();
+
+    categories.forEach((element) {
+      categoryArticles[element.name] = [];
+    });
+
+    getNewsByCategory(_selectedCategory);
+  }
+
+  String get selectedCategory => _selectedCategory;
+
+  set selectedCategory( String category ){
+    _selectedCategory = category;
+    getNewsByCategory(category);
+    notifyListeners();
   }
 
   getTopHeadlines() async {
@@ -19,7 +45,7 @@ class NewsService extends ChangeNotifier{
       scheme: 'https',
       host: 'newsapi.org',
       path: '/v2/top-headlines',
-      queryParameters: {'apiKey': api_key, 'country': 'mx'}
+      queryParameters: {'apiKey': api_key, 'country': 'us'}
     );
 
     final res = await http.get(url);
@@ -29,6 +55,27 @@ class NewsService extends ChangeNotifier{
     headlines.addAll( newsResponse.articles );
     notifyListeners();
 
+  }
+
+  getNewsByCategory( String category ) async{
+
+    if (categoryArticles[category]!.isNotEmpty){
+      return categoryArticles[category]!;
+    }
+
+    final url = Uri(
+      scheme: 'https',
+      host: 'newsapi.org',
+      path: '/v2/top-headlines',
+      queryParameters: {'apiKey': api_key, 'country': 'us', 'category': category}
+    );
+
+    final res = await http.get(url);
+    
+    final newsResponse = News.fromJson(res.body);
+    
+    categoryArticles[category]!.addAll( newsResponse.articles );
+    notifyListeners();
   }
 
 }

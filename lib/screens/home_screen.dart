@@ -15,6 +15,28 @@ class HomeScreen extends StatelessWidget {
 
     final newsService = Provider.of<NewsService>(context);
 
-    return NewsList(news: newsService.headlines);
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              child: Text(
+                'For You',
+                style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
+          Expanded(
+            child: NewsList(
+              news: newsService.headlines,
+              topNew: true,
+            ),
+          ),
+        ],
+      )
+    );
   }
 }
