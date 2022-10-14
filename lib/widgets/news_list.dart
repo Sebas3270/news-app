@@ -7,8 +7,9 @@ class NewsList extends StatelessWidget {
 
   final List<Article> news;
   final bool? topNew;
+  final String type;
 
-  const NewsList({Key? key, required this.news, this.topNew}) : super(key: key);
+  const NewsList({Key? key, required this.news, this.topNew, this.type = 'allTiny'}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +18,20 @@ class NewsList extends StatelessWidget {
       itemCount: news.length,
       itemBuilder: (context, index){
 
-        if(index == 0 && topNew == true){
-          return _TopBarCard( newArticle: news[index], index: index);
+        switch (type) {
+          case 'allTiny':
+            return _SecondaryNew( newArticle: news[index],);
+          case 'allBig':
+            return _TopBarCard( newArticle: news[index], index: index);
+          case 'firstBig':
+            if(index == 0 && topNew == true){
+              return _TopBarCard( newArticle: news[index], index: index);
+            }
+            return _SecondaryNew( newArticle: news[index],);
+          default:
+            return _SecondaryNew( newArticle: news[index],);
         }
-
-        return _SecondaryNew( newArticle: news[index],);
+        
       },
     );
   }
