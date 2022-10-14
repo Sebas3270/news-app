@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
           Expanded(
             child: NewsList(
               news: newsService.headlines,
-              topNew: true,
+              type: 'allBig',
             ),
           ),
         ],

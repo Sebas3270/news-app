@@ -39,7 +39,7 @@ class HeadlinesScreen extends StatelessWidget {
             Expanded(
               child: NewsList(
                 news: newsService.categoryArticles[newsService.selectedCategory]!,
-                topNew: true,
+                type: 'firstBig',
               )
             )
           ],
