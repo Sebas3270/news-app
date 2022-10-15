@@ -4,6 +4,8 @@ import 'package:news_app/models/news_models.dart';
 import 'package:news_app/services/services.dart';
 import 'package:news_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class NewScreen extends StatelessWidget {
   const NewScreen({Key? key}) : super(key: key);
@@ -96,8 +98,25 @@ class NewScreen extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                   child: MaterialButton(
                     height: 50,
-                    onPressed: () {
-                      
+                    onPressed: () async {
+                      if( await canLaunchUrl(Uri.parse(currentNew.url)) ){
+
+                        await launchUrlString(currentNew.url);
+                        
+                      }else{
+
+                        final snackBar = SnackBar(
+                          content: const Text('Url could not open'),
+                          action: SnackBarAction(
+                            label: 'Close',
+                            onPressed: () {
+                              
+                            },
+                          ),
+                        );
+
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      }
                     },
                     color: Theme.of(context).colorScheme.secondary,
                     child: Container(
