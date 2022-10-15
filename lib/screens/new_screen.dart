@@ -26,19 +26,11 @@ class NewScreen extends StatelessWidget {
 
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      //color: Theme.of(context).colorScheme.secondary,
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                    ),
-                    child: IconButton(
-                      onPressed: () => Navigator.pop(context), 
-                      icon: Icon(Icons.arrow_back_ios_new_rounded)
-                    ),
+                  child: IconButton(
+                    onPressed: () => Navigator.pop(context), 
+                    icon: const Icon(Icons.arrow_back_ios_new_rounded)
                   ),
                 ),
-
-                
 
                 ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
