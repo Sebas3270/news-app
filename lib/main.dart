@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/providers/providers.dart';
 import 'package:news_app/screens/main_screen.dart';
+import 'package:news_app/screens/screens.dart';
 import 'package:news_app/services/services.dart';
 import 'package:news_app/theme/theme.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'News App',
-      home: const MainScreen(),
+      //home: const MainScreen(),
+      initialRoute: 'main',
+      routes: {
+        'main':(context) => const MainScreen(),
+        'new':(context) => const NewScreen(),
+      },
       theme: darkTheme,
     );
   }

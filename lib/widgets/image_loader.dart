@@ -21,8 +21,10 @@ class ImageLoader extends StatelessWidget {
             SizedBox(
               width: sizeLoader,
               height: sizeLoader,
-              child: CircularProgressIndicator(
-                color: Theme.of(context).colorScheme.secondary,
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
               ),
             )
           ),

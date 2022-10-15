@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/models/models.dart';
+import 'package:news_app/services/services.dart';
 import 'package:news_app/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
 class NewsList extends StatelessWidget {
 
@@ -12,6 +14,9 @@ class NewsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final newsService = Provider.of<NewsService>(context);
+
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
       itemCount: news.length,
@@ -19,16 +24,46 @@ class NewsList extends StatelessWidget {
 
         switch (type) {
           case 'allTiny':
-            return _SecondaryNew( newArticle: news[index],);
+            return GestureDetector(
+              onTap: () {
+                newsService.selectedNew = news[index];
+                Navigator.pushNamed(context, 'new');
+              },
+              child: _SecondaryNew( newArticle: news[index],)
+            );
           case 'allBig':
-            return _TopBarCard( newArticle: news[index], index: index);
+            return GestureDetector(
+                onTap: () {
+                  newsService.selectedNew = news[index];
+                  Navigator.pushNamed(context, 'new');
+                },
+                child: _TopBarCard( newArticle: news[index], index: index)
+              );
           case 'firstBig':
             if(index == 0){
-              return _TopBarCard( newArticle: news[index], index: index);
+              return GestureDetector(
+                onTap: () {
+                  newsService.selectedNew = news[index];
+                  Navigator.pushNamed(context, 'new');
+                },
+                child: _TopBarCard( newArticle: news[index], index: index)
+              );
             }
-            return _SecondaryNew( newArticle: news[index],);
+            return GestureDetector(
+              onTap: () {
+                newsService.selectedNew = news[index];
+                Navigator.pushNamed(context, 'new');
+              },
+              child: _SecondaryNew( newArticle: news[index],)
+            );
           default:
-            return _SecondaryNew( newArticle: news[index],);
+            return GestureDetector(
+              onTap: () {
+                newsService.selectedNew = news[index];
+                Navigator.pushNamed(context, 'new');
+              },
+              child: _SecondaryNew( newArticle: news[index],)
+            );
         }
 
       },
