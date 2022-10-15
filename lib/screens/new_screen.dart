@@ -35,7 +35,7 @@ class NewScreen extends StatelessWidget {
                 ),
 
                 ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
                   child: ImageLoader(
                     urlImage: currentNew.urlToImage,
                     heightContainer: 300,
@@ -119,7 +119,7 @@ class NewScreen extends StatelessWidget {
                       }
                     },
                     color: Theme.of(context).colorScheme.secondary,
-                    child: Container(
+                    child: const SizedBox(
                       width: double.infinity,
                       child: Center(
                         child: Text(
@@ -154,9 +154,9 @@ class _ArticleContent extends StatelessWidget {
     
     return (currentNew.content != null) ? Text(
       '${ currentNew.content }',
-      style: TextStyle(
+      style: const TextStyle(
           fontSize: 16,
         ),
-    ) : SizedBox();
+    ) : const SizedBox();
   }
 }

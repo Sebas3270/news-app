@@ -20,7 +20,7 @@ class NewsService extends ChangeNotifier{
   ];
   String _selectedCategory = 'general';
   Map<String,List<Article>> categoryArticles = {};
-  late Article _selectedNew;
+  late Article selectedNew;
 
   NewsService(){
 
@@ -39,12 +39,6 @@ class NewsService extends ChangeNotifier{
     _selectedCategory = category;
     getNewsByCategory(category);
     notifyListeners();
-  }
-
-  Article get selectedNew => _selectedNew;
-
-  set selectedNew( Article article ){
-    _selectedNew = article;
   }
 
   getTopHeadlines() async {
