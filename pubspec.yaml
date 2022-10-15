@@ -46,6 +46,8 @@ dependencies:
   intl: ^0.17.0
   # To use transparent images
   transparent_image: ^2.0.0
+  # To open other apps
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_test:
