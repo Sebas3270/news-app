@@ -4,8 +4,8 @@ final darkTheme = ThemeData.dark().copyWith(
   colorScheme: ThemeData.dark().colorScheme.copyWith(
     secondary: Colors.red
   ),
-  scaffoldBackgroundColor: const Color.fromRGBO(10, 10, 10, 1),
+  scaffoldBackgroundColor: Color.fromARGB(255, 27, 27, 27),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Color.fromRGBO(10, 10, 10, 1),
+    backgroundColor: Color.fromARGB(255, 27, 27, 27),
   ),
 );
