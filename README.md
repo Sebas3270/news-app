@@ -1,7 +1,7 @@
 # News App
 
 An app to read and filter news, made to improve my mobile development skills
-Note: I used my own api key in my .env file, if you want to run d¿the app, yo should register on news api and create your account to get your api key, and then add it into your .env file as API_KEY
+Note: I used my own api key in my .env file, if you want to run the app, you should register on news api and create your account to get your api key, and then create a new .env file and add that api key as API_KEY on it.
 
 ## Api
 
