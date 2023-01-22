@@ -1,9 +1,22 @@
 # News App
 
-An app to read and filter news, made to improve my mobile development skills
-Note: I used my own api key in my .env file, if you want to run d¿the app, yo should register on news api and create your account to get your api key, and then add it into your .env file as API_KEY
+An app to read and filter news, made to improve my mobile development skills, in this app you can checkout the most trending news, filter them by categories, check the preview of each new and read the complete article launching the device launcher.
 
-## Api
+![News App Screenshot](https://user-images.githubusercontent.com/88170325/213927178-a0d0e4a7-000d-47f0-b8ed-e1c5743d7a2e.jpg)
+
+## Installation
+
+1. Clone project
+2. Install dependencies
+```
+flutter pub get
+```
+3. Create an account on [News Api](https://newsapi.org/)
+4. Copy ```.env.template``` and rename it to ```.env```
+5. Paste the news api key on the .env variable ```API_KEY```
+6. Run the project with ```flutter run``` or running manually on the device with your preferred IDE
+
+<!-- ## Api
 
 ### [News Api](https://newsapi.org/)
 
@@ -27,4 +40,4 @@ To use environment variables
 To format Date Class
 
 ### transparent_image
-To use circular progress indicator when an image is loading
+To use circular progress indicator when an image is loading -->
